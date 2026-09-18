@@ -82,17 +82,14 @@ const features = [
 const testimonials = [
   {
     name: "مها محمد",
-    image: "student-1.webp",
     text: "كانت التجربة رائعة حقًا. تعلمت الكثير واكتسبت ثقة أكبر بمهاراتي.",
   },
   {
     name: "نورة عبدالله",
-    image: "student-2.webp",
     text: "المدربات قمة في الاحتراف والوضوح، وتجربة التدريب منظمة وممتعة.",
   },
   {
     name: "ريم خالد",
-    image: "student-3.webp",
     text: "من أفضل التجارب التي خضتها. أنصح كل محبة للحلويات بالانضمام.",
   },
 ];
@@ -106,11 +103,6 @@ const faqs = [
   ["كيف يمكنني التسجيل في الدورة؟", "اختاري الدورة المناسبة ثم اضغطي زر التسجيل واتّبعي خطوات الحجز والدفع."],
 ];
 
-const articles = [
-  ["أسرار نجاح كيك الشوكولاتة المثالي في المنزل", "article-1.webp"],
-  ["دليل أساسيات كريمة الزبدة: القوام والثبات", "article-2.webp"],
-  ["أفكار مبتكرة لتقديم الحلويات للمناسبات", "article-3.webp"],
-];
 
 function SectionTitle({ title, subtitle }) {
   return (
@@ -167,7 +159,6 @@ function App() {
             <a href="#story">عن المركز</a>
             <a href="#courses">الدورات التدريبية</a>
             <a href="#products">المنتجات</a>
-            <a href="#articles">المدونة</a>
             <a href="#footer">تواصل معنا</a>
           </nav>
 
@@ -274,9 +265,8 @@ function App() {
             <div className="testimonial-grid">
               {testimonials.map((t, i) => (
                 <article className="testimonial reveal" key={t.name} style={{ "--delay": `${i * 60}ms` }}>
-                  <img src={`${A}${t.image}`} alt={t.name} />
-                  <div>
-                    <p>{t.text}</p>
+                  <p>{t.text}</p>
+                  <div className="testimonial-footer">
                     <div className="stars">★★★★★</div>
                     <strong>{t.name}</strong>
                   </div>
@@ -349,25 +339,6 @@ function App() {
           </div>
         </section>
 
-        <section className="articles-section" id="articles">
-          <div className="container">
-            <div className="section-head reveal">
-              <a className="outline-pill" href="#articles">عرض جميع المقالات ←</a>
-              <SectionTitle title="أحدث المقالات" subtitle="نصائح وخبرات من عالم الحلويات" />
-            </div>
-            <div className="articles-grid">
-              {articles.map(([title, image], i) => (
-                <article className="article-card reveal" key={title} style={{ "--delay": `${i * 60}ms` }}>
-                  <img src={`${A}${image}`} alt="" />
-                  <div>
-                    <h3>{title}</h3>
-                    <a href="#articles">اقرأ المزيد ←</a>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
       </main>
 
       <footer id="footer">
@@ -390,7 +361,6 @@ function App() {
             <a href="#home">الرئيسية</a>
             <a href="#courses">الدورات التدريبية</a>
             <a href="#products">المنتجات</a>
-            <a href="#articles">المدونة</a>
           </div>
 
           <div className="social">
