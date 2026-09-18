@@ -291,11 +291,14 @@ function App() {
           <div className="container">
             <SectionTitle title="نتائج متدرباتنا" subtitle="إبداعات حقيقية .. وقصص نجاح ملهمة" />
             <div className="gallery-grid">
-              {Array.from({ length: 6 }, (_, i) => (
-                <figure className="gallery-item reveal" key={i}>
-                  <img src={`${A}gallery-${i + 1}.webp`} alt="" />
-                </figure>
-              ))}
+             {Array.from({ length: 6 }, (_, i) => (
+  <figure className="gallery-item reveal" key={i}>
+    <img
+      src={`/assets/result-${i + 1}.webp`}
+      alt={`نتيجة متدربة ${i + 1}`}
+    />
+  </figure>
+))}
             </div>
           </div>
         </section>
