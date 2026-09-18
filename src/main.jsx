@@ -158,8 +158,8 @@ function App() {
 
       <header className="topbar">
         <div className="nav-wrap">
-          <a className="brand" href="#home" aria-label="مركز أريج الورد">
-            <img src={`${A}logo.webp`} alt="مركز أريج الورد للتدريب" />
+          <a className="brand" href="#home" aria-label="معهد أريج الورد للتدريب">
+            <img src={`${A}logo.webp`} alt="معهد أريج الورد للتدريب" />
           </a>
 
           <nav className={`nav ${menu ? "nav-open" : ""}`}>
@@ -370,7 +370,7 @@ function App() {
       <footer id="footer">
         <div className="container footer-grid">
           <div className="footer-brand">
-            <img src={`${A}logo.webp`} alt="أريج الورد" />
+            <img src={`${A}logo.webp`} alt="معهد أريج الورد للتدريب" />
           </div>
 
           <div className="newsletter">

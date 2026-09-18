@@ -1,0 +1,6 @@
+{
+  "name": "معهد أريج الورد للتدريب",
+  "description": "معهد أريج الورد للتدريب — دورات احترافية في فنون الكيك والحلويات",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
