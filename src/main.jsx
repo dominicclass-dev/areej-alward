@@ -1,13 +1,18 @@
 
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectCreative } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/effect-creative";
 import "./styles.css";
 
 const heroCakes = [
-  { name: "كيك شوكولاتة فاخر", image: "cake-1-chocolate.webp" },
-  { name: "كيك التوت الإفرنجي", image: "cake-2-berry.webp" },
-  { name: "كيك الفستق والحلبي", image: "cake-3-pistachio.webp" },
-  { name: "كيك الكاراميل المملح", image: "cake-4-caramel.webp" },
+  { name: "كيك شوكولاتة فاخر", image: "cake-1-chocolate.webp", className: "cake-chocolate" },
+  { name: "كيك التوت الإفرنجي", image: "cake-2-berry.webp", className: "cake-berry" },
+  { name: "كيك الفستق والحلبي", image: "cake-3-pistachio.webp", className: "cake-pistachio" },
+  { name: "كيك الكاراميل المملح", image: "cake-4-caramel.webp", className: "cake-caramel" },
 ];
 const A = "/assets/";
 
@@ -123,14 +128,6 @@ function App() {
   const [openFaq, setOpenFaq] = useState(null);
   const [menu, setMenu] = useState(false);
   const productRef = useRef(null);
-  const [activeCakeIndex, setActiveCakeIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveCakeIndex((prev) => (prev + 1) % heroCakes.length);
-    }, 3500);
-    return () => clearInterval(timer);
-  }, []);
 
   useEffect(() => {
     const items = document.querySelectorAll(".reveal");
@@ -188,36 +185,72 @@ function App() {
 
       <main>
         <section className="hero" id="home">
-          <div className="hero-media reveal hero-carousel-container">
-          <div className="hero-carousel-track">
-            {heroCakes.map((cake, index) => {
-              const isCenter = index === activeCakeIndex;
-              return (
-                <div
-                  key={cake.image}
-                  className={`hero-carousel-item ${isCenter ? "active" : ""}`}
-                  onClick={() => setActiveCakeIndex(index)}
-                >
-                  {isCenter && (
-                    <div className="glitter-spotlight" aria-hidden="true">
-                      <div className="spotlight-beam" />
-                      <div className="glitter-sparkles" />
-                    </div>
-                  )}
-                  <img src={`${A}${cake.image}`} alt={cake.name} />
-                </div>
-              );
-            })}
+          <div className="hero-media reveal hero-cake-stage">
+            {/* 1. Fixed Black Cake Stand / Seat in the background underneath the cake */}
+            <img
+              src={`${A}hero-cake-stand.webp`}
+              alt="قاعدة الكيك الفاخرة"
+              className="hero-fixed-stand"
+              draggable="false"
+            />
+
+            {/* 2. Swiper Creative Effect Cake Slider on top */}
+            <Swiper
+              dir="ltr"
+              onBeforeInit={(swiper) => {
+                swiper.rtl = false;
+                swiper.rtlTranslate = false;
+              }}
+              modules={[EffectCreative, Autoplay]}
+              loop={true}
+              loopAdditionalSlides={2}
+              observer={true}
+              observeParents={true}
+              resizeObserver={true}
+              updateOnWindowResize={true}
+              grabCursor={true}
+              speed={800}
+              effect="creative"
+              creativeEffect={{
+                prev: {
+                  translate: ["-120%", 0, -500],
+                  rotate: [0, 0, -45],
+                  opacity: 0,
+                  shadow: false,
+                },
+                next: {
+                  translate: ["120%", 0, -500],
+                  rotate: [0, 0, 45],
+                  opacity: 0,
+                  shadow: false,
+                },
+              }}
+              autoplay={{
+                delay: 2800,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: false,
+              }}
+              className="hero-cake-swiper"
+            >
+              {heroCakes.map((cake) => (
+                <SwiperSlide key={cake.image} className="hero-cake-slide">
+                  <img
+                    src={`${A}${cake.image}`}
+                    alt={cake.name}
+                    className={`hero-cake-img ${cake.className || ""}`}
+                    draggable="false"
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
-        </div>
 
           <div className="hero-copy reveal">
             <p className="eyebrow">تعلمي .. أبدعي .. واصنعي شغفك</p>
             <h1>مركز أريج الورد<br />للتدريب</h1>
             <p className="hero-desc">
-              دورات متخصصة في فنون الكيك والحلويات
-              <br />
-              وتقديم المهارات لصناعة مستقبل أكثر حلاوة
+              <span className="hero-desc-line1">دورات متخصصة في فنون الكيك والحلويات</span>
+              <span className="hero-desc-line2">تعلمي من الخبرة وابدعي بثقة</span>
             </p>
             <a className="btn btn-dark hero-btn" href="#courses">
               <Icon name="play" size={22} />
