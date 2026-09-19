@@ -195,7 +195,7 @@ function App() {
       return (
         <div
           key={cake.image}
-          className={hero-carousel-item ${isCenter ? "active" : ""}}
+          className={hero-carousel-item ${isCenter ? "active" : ""}`}
           onClick={() => setActiveCakeIndex(index)}
         >
           {isCenter && (
