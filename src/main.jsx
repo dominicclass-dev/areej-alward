@@ -189,27 +189,27 @@ function App() {
       <main>
         <section className="hero" id="home">
           <div className="hero-media reveal hero-carousel-container">
-  <div className="hero-carousel-track">
-    {heroCakes.map((cake, index) => {
-      const isCenter = index === activeCakeIndex;
-      return (
-        <div
-          key={cake.image}
-          className={`hero-carousel-item ${isCenter ? "active" : ""}`}
-          onClick={() => setActiveCakeIndex(index)}
-        >
-          {isCenter && (
-            <div className="glitter-spotlight" aria-hidden="true">
-              <div className="spotlight-beam" />
-              <div className="glitter-sparkles" />
-            </div>
-          )}
-          <img src={${A}${cake.image}} alt={cake.name} />
+          <div className="hero-carousel-track">
+            {heroCakes.map((cake, index) => {
+              const isCenter = index === activeCakeIndex;
+              return (
+                <div
+                  key={cake.image}
+                  className={`hero-carousel-item ${isCenter ? "active" : ""}`}
+                  onClick={() => setActiveCakeIndex(index)}
+                >
+                  {isCenter && (
+                    <div className="glitter-spotlight" aria-hidden="true">
+                      <div className="spotlight-beam" />
+                      <div className="glitter-sparkles" />
+                    </div>
+                  )}
+                  <img src={`${A}${cake.image}`} alt={cake.name} />
+                </div>
+              );
+            })}
+          </div>
         </div>
-      );
-    })}
-  </div>
-</div>
 
           <div className="hero-copy reveal">
             <p className="eyebrow">تعلمي .. أبدعي .. واصنعي شغفك</p>
