@@ -46,13 +46,13 @@ function Icon({ name, size = 28 }) {
 const courses = [
   {
     title: "دورات الهوايات والحضور",
-    text: "تجربة ممتعة ومفيدة لكل محبي الحلويات",
+    text: "طوري مهاراتك وارتقي باحترافك في عالم الكيك",
     image: "course-1.webp",
     icon: "group",
   },
   {
-    title: "دورات متقدمة",
-    text: "طوري مهاراتك وارتقي باحترافك في عالم الكيك",
+    title: "تدريب العاملات",
+    text: "برامج متخصصة لتطوير مهارات العملات المنزلية",
     image: "course-2.webp",
     icon: "award",
   },
@@ -72,10 +72,10 @@ const courses = [
 
 const products = [
   ["كيك شوكولاتة فاخر", "product-1.webp"],
-  ["موس الشوكولاتة", "product-2.webp"],
-  ["تشيز كيك فاخر", "product-3.webp"],
-  ["كيكة الورد", "product-4.webp"],
-  ["أصابع البراوني", "product-5.webp"],
+  ["دورة الحلويات الفرنسية", "product-2.webp"],
+  ["دورة التشيز كيك", "product-3.webp"],
+  ["برنامج الحلويات المكثف", "product-4.webp"],
+  ["كيكة فلفت روز", "product-5.webp"],
 ];
 
 const features = [

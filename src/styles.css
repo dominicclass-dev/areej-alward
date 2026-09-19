@@ -243,7 +243,7 @@ section { position: relative; }
   box-shadow: var(--shadow);
   border-color: rgba(183,53,85,.25);
 }
-.course-image { position: relative; height: 146px; overflow: hidden; }
+.course-image { position: relative; height: 220px; overflow: hidden; }
 .course-image img { width: 100%; height: 100%; object-fit: cover; }
 .floating-icon {
   position: absolute;
@@ -261,7 +261,7 @@ section { position: relative; }
 .course-body p { margin: 0 0 13px; color: var(--muted); line-height: 1.7; font-size: 12.5px; min-height: 43px; }
 .course-body a { color: var(--rose-600); font-weight: 600; font-size: 13px; }
 
-.products-section { padding-top: 18px; }
+.products-section { padding-top: 18px; padding-bottom: 38px; }
 .product-shell { position: relative; }
 .products-track {
   display: grid;
@@ -284,8 +284,8 @@ section { position: relative; }
   background: #fff;
   text-align: center;
 }
-.product-card img { width: 100%; height: 118px; object-fit: cover; }
-.product-card strong { display: block; padding: 10px; font-size: 13px; }
+.product-card img { width: 100%; height: 255px; object-fit: cover; object-position: center top; }
+.product-card strong { display: block; padding: 12px 10px; font-size: 13px; }
 .round-arrow {
   position: absolute;
   top: 50%;
@@ -515,7 +515,7 @@ footer {
   .section-head .section-title, .section-head > .outline-pill { grid-column: 1; grid-row: auto; }
   .section-head > .outline-pill { justify-self: center; order: 2; }
   .course-grid { grid-template-columns: 1fr; }
-  .course-image { height: 185px; }
+  .course-image { height: 230px; }
   .feature-grid { grid-template-columns: repeat(2, 1fr); gap: 18px 0; }
   .feature-item:nth-child(2) { border-left: 0; }
   .testimonial-grid { grid-template-columns: 1fr; }
@@ -538,11 +538,12 @@ footer {
   .hero-media { height: 280px; }
   .eyebrow { font-size: 17px; }
   .hero h1 { letter-spacing: -1.5px; }
-  .course-image { height: 155px; }
+  .course-image { height: 200px; }
   .feature-grid { grid-template-columns: 1fr; }
   .feature-item { border-left: 0; border-bottom: 1px solid rgba(126,23,39,.12); padding-bottom: 16px; }
   .feature-item:last-child { border-bottom: 0; }
   .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .product-card img { height: 220px; }
   .newsletter form { grid-template-columns: 1fr; }
   .round-arrow { display: none; }
 }
