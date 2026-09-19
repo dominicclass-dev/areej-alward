@@ -3,6 +3,12 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 
+const heroCakes = [
+  { name: "كيك شوكولاتة فاخر", image: "cake-1-chocolate.webp" },
+  { name: "كيك التوت الإفرنجي", image: "cake-2-berry.webp" },
+  { name: "كيك الفستق والحلبي", image: "cake-3-pistachio.webp" },
+  { name: "كيك الكاراميل المملح", image: "cake-4-caramel.webp" },
+];
 const A = "/assets/";
 
 function Icon({ name, size = 28 }) {
@@ -117,6 +123,14 @@ function App() {
   const [openFaq, setOpenFaq] = useState(null);
   const [menu, setMenu] = useState(false);
   const productRef = useRef(null);
+  const [activeCakeIndex, setActiveCakeIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveCakeIndex((prev) => (prev + 1) % heroCakes.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     const items = document.querySelectorAll(".reveal");
@@ -174,10 +188,28 @@ function App() {
 
       <main>
         <section className="hero" id="home">
-          <div className="hero-media reveal">
-            <img src={`${A}hero-cakes.webp`} alt="ثلاث كيكات فاخرة" />
-            <div className="soft-spotlight" aria-hidden="true" />
-          </div>
+          <div className="hero-media reveal hero-carousel-container">
+  <div className="hero-carousel-track">
+    {heroCakes.map((cake, index) => {
+      const isCenter = index === activeCakeIndex;
+      return (
+        <div
+          key={cake.image}
+          className={hero-carousel-item ${isCenter ? "active" : ""}}
+          onClick={() => setActiveCakeIndex(index)}
+        >
+          {isCenter && (
+            <div className="glitter-spotlight" aria-hidden="true">
+              <div className="spotlight-beam" />
+              <div className="glitter-sparkles" />
+            </div>
+          )}
+          <img src={${A}${cake.image}} alt={cake.name} />
+        </div>
+      );
+    })}
+  </div>
+</div>
 
           <div className="hero-copy reveal">
             <p className="eyebrow">تعلمي .. أبدعي .. واصنعي شغفك</p>
